@@ -57,7 +57,7 @@ router.put('/:id', (req, res) => {
       }
     )
       .then((updateCat) => {
-        res.json(updateCat);
+        res.json(`id:${updateCat} has been updated`);
       })
       .catch((err) => res.json(err));
 });
@@ -72,7 +72,7 @@ router.delete('/:id', async (req, res) => {
       res.status(404).json({ message: 'No Category with this id!' });
       return;
     }
-    res.status(200).json(categoryData);
+    res.status(200).json(`id:${req.params.id} has been deleted`);
   } catch (err) {
     res.status(500).json(err);
   }
